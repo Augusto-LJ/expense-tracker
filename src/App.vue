@@ -3,7 +3,7 @@
     <div class="container">
       <Balance :total="total"/>
       <IncomeExpenses :income="+income" :expenses="+expenses"/>
-      <TransactionList :transactions="transactions"/>
+      <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted"/>
       <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
     </div>
 </template>
@@ -21,12 +21,7 @@ import { ref, computed } from 'vue';
 
 const toast = useToast();
 
-const transactions = ref([
-  {id: 1, text: "Flower", amount: -19.99},
-  {id: 2, text: "Salary", amount: 2000.00},
-  {id: 3, text: "Book", amount: -15},
-  {id: 4, text: "Camera", amount: -299.99},
-]);
+const transactions = ref([]);
 
 const total = computed(() => {
   return transactions.value.reduce((acc, transaction) => {
@@ -64,7 +59,13 @@ const handleTransactionSubmitted = function(transactionData) {
 
 const generateUniqueId = function() {
   const maxIdObj = transactions.value[transactions.value.length - 1]
-  return maxIdObj.id + 1;
+  return maxIdObj ? maxIdObj.id + 1 : 1;
+}
+
+const handleTransactionDeleted = function(id) {
+  transactions.value = transactions.value.filter(x => x.id !== id);
+
+  toast.success('Transaction deleted!');
 }
 
 </script>
