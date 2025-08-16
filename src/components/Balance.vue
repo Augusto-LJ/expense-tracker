@@ -6,7 +6,7 @@
 <script setup>
 const props = defineProps({
     total: {
-        type: Array,
+        type: Number,
         required: true
     }
 });
