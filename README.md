@@ -10,8 +10,7 @@ A simple and functional **Single Page Application (SPA)** that helps you track y
 
 ## 🎯 Features
 
--   Add income transactions
--   Add expense transactions
+-   Add income and expense transactions
 -   Display a balance with total income, expenses and net balance
 -   List all transactions with option to delete
 -   Basic form validation
@@ -22,11 +21,32 @@ A simple and functional **Single Page Application (SPA)** that helps you track y
 
 <img width="1878" height="845" alt="image" src="https://github.com/user-attachments/assets/dcdacf73-2218-41f9-a6ca-3441f9b8f83c" />
 
+## 🧠 How It Works
+
+- Transactions can be added to the history list and appears in the transaction list
+- Users can remove any transaction
+- For every transaction added, the balance is updated
+
+## 📥 Installation
+```bash
+# Clone the repo
+git clone https://github.com/Augusto-LJ/expense-tracker.git
+cd expense-tracker
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+> Make sure you have Node.js and npm installed.
+
 ## 🔜 Future improvements
 
 -   Filters and categories for transactions
 -   Checkbox to tell if it's an income or an expense, instead of writing negative numbers for expenses
 -   Responsive charts and dashboards
+-   Editing transactions
 -   Export data (CSV/Excel)
 -   Dark mode
 -   What else? Let me know
